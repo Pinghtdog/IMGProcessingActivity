@@ -29,63 +29,30 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxOriginal = new System.Windows.Forms.PictureBox();
+            this.pictureBoxProcessed = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.dIMPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addPictureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.selectCameraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.filtersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.basicCopyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.greyScaleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.colorInversionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.histogramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sepiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.addPictureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.selectCameraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOriginal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProcessed)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(55, 375);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(172, 374);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(279, 374);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(382, 374);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
             // 
             // imageList1
             // 
@@ -93,23 +60,25 @@
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // pictureBox1
+            // pictureBoxOriginal
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(30, 62);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(267, 270);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
+            this.pictureBoxOriginal.Location = new System.Drawing.Point(30, 62);
+            this.pictureBoxOriginal.Name = "pictureBoxOriginal";
+            this.pictureBoxOriginal.Size = new System.Drawing.Size(297, 270);
+            this.pictureBoxOriginal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxOriginal.TabIndex = 4;
+            this.pictureBoxOriginal.TabStop = false;
+            this.pictureBoxOriginal.Click += new System.EventHandler(this.pictureBoxOriginal_Click);
             // 
-            // pictureBox2
+            // pictureBoxProcessed
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(340, 62);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(297, 270);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 5;
-            this.pictureBox2.TabStop = false;
+            this.pictureBoxProcessed.Location = new System.Drawing.Point(358, 62);
+            this.pictureBoxProcessed.Name = "pictureBoxProcessed";
+            this.pictureBoxProcessed.Size = new System.Drawing.Size(297, 270);
+            this.pictureBoxProcessed.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxProcessed.TabIndex = 5;
+            this.pictureBoxProcessed.TabStop = false;
+            this.pictureBoxProcessed.Click += new System.EventHandler(this.pictureBoxProcessed_Click);
             // 
             // menuStrip1
             // 
@@ -118,30 +87,32 @@
             this.filtersToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(702, 24);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // dIMPToolStripMenuItem
             // 
             this.dIMPToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addPictureToolStripMenuItem,
-            this.selectCameraToolStripMenuItem});
+            this.loadImageToolStripMenuItem,
+            this.saveImageToolStripMenuItem});
             this.dIMPToolStripMenuItem.Name = "dIMPToolStripMenuItem";
-            this.dIMPToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
-            this.dIMPToolStripMenuItem.Text = "DIMP";
+            this.dIMPToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.dIMPToolStripMenuItem.Text = "File";
             // 
-            // addPictureToolStripMenuItem
+            // loadImageToolStripMenuItem
             // 
-            this.addPictureToolStripMenuItem.Name = "addPictureToolStripMenuItem";
-            this.addPictureToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.addPictureToolStripMenuItem.Text = "add picture";
+            this.loadImageToolStripMenuItem.Name = "loadImageToolStripMenuItem";
+            this.loadImageToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.loadImageToolStripMenuItem.Text = "Load Image";
+            this.loadImageToolStripMenuItem.Click += new System.EventHandler(this.loadImageToolStripMenuItem_Click_1);
             // 
-            // selectCameraToolStripMenuItem
+            // saveImageToolStripMenuItem
             // 
-            this.selectCameraToolStripMenuItem.Name = "selectCameraToolStripMenuItem";
-            this.selectCameraToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.selectCameraToolStripMenuItem.Text = "select camera";
+            this.saveImageToolStripMenuItem.Name = "saveImageToolStripMenuItem";
+            this.saveImageToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.saveImageToolStripMenuItem.Text = "Save Image";
+            this.saveImageToolStripMenuItem.Click += new System.EventHandler(this.saveImageToolStripMenuItem_Click_1);
             // 
             // filtersToolStripMenuItem
             // 
@@ -158,52 +129,103 @@
             // basicCopyToolStripMenuItem
             // 
             this.basicCopyToolStripMenuItem.Name = "basicCopyToolStripMenuItem";
-            this.basicCopyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.basicCopyToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.basicCopyToolStripMenuItem.Text = "Basic Copy";
             this.basicCopyToolStripMenuItem.Click += new System.EventHandler(this.basicCopyToolStripMenuItem_Click);
             // 
             // greyScaleToolStripMenuItem
             // 
             this.greyScaleToolStripMenuItem.Name = "greyScaleToolStripMenuItem";
-            this.greyScaleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.greyScaleToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.greyScaleToolStripMenuItem.Text = "GreyScale";
+            this.greyScaleToolStripMenuItem.Click += new System.EventHandler(this.greyScaleToolStripMenuItem_Click);
             // 
             // colorInversionToolStripMenuItem
             // 
             this.colorInversionToolStripMenuItem.Name = "colorInversionToolStripMenuItem";
-            this.colorInversionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.colorInversionToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.colorInversionToolStripMenuItem.Text = "Color Inversion";
+            this.colorInversionToolStripMenuItem.Click += new System.EventHandler(this.colorInversionToolStripMenuItem_Click);
             // 
             // histogramToolStripMenuItem
             // 
             this.histogramToolStripMenuItem.Name = "histogramToolStripMenuItem";
-            this.histogramToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.histogramToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.histogramToolStripMenuItem.Text = "Histogram";
+            this.histogramToolStripMenuItem.Click += new System.EventHandler(this.histogramToolStripMenuItem_Click);
             // 
             // sepiaToolStripMenuItem
             // 
             this.sepiaToolStripMenuItem.Name = "sepiaToolStripMenuItem";
-            this.sepiaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sepiaToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.sepiaToolStripMenuItem.Text = "Sepia";
+            this.sepiaToolStripMenuItem.Click += new System.EventHandler(this.sepiaToolStripMenuItem_Click);
+            // 
+            // addPictureToolStripMenuItem
+            // 
+            this.addPictureToolStripMenuItem.Name = "addPictureToolStripMenuItem";
+            this.addPictureToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addPictureToolStripMenuItem.Text = "Load Image";
+            // 
+            // selectCameraToolStripMenuItem
+            // 
+            this.selectCameraToolStripMenuItem.Name = "selectCameraToolStripMenuItem";
+            this.selectCameraToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.selectCameraToolStripMenuItem.Text = "select camera";
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Enabled = false;
+            this.textBox1.Font = new System.Drawing.Font("Upheaval TT (BRK)", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(135, 338);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(100, 18);
+            this.textBox1.TabIndex = 7;
+            this.textBox1.Text = "Original Image";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Enabled = false;
+            this.textBox2.Font = new System.Drawing.Font("Upheaval TT (BRK)", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(450, 338);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(125, 18);
+            this.textBox2.TabIndex = 8;
+            this.textBox2.Text = "Proccessed Image";
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(30, 415);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "WebCam";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.ClientSize = new System.Drawing.Size(702, 450);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.pictureBoxProcessed);
+            this.Controls.Add(this.pictureBoxOriginal);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOriginal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProcessed)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -212,14 +234,9 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBoxOriginal;
+        private System.Windows.Forms.PictureBox pictureBoxProcessed;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem dIMPToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addPictureToolStripMenuItem;
@@ -230,6 +247,13 @@
         private System.Windows.Forms.ToolStripMenuItem colorInversionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem histogramToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sepiaToolStripMenuItem;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.ToolStripMenuItem loadImageToolStripMenuItem;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.ToolStripMenuItem saveImageToolStripMenuItem;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button button1;
     }
 }
 
